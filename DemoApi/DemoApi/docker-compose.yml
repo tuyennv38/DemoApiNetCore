@@ -1,0 +1,23 @@
+﻿version: "3.3"
+
+services:
+  demoapi:
+    image: ghcr.io/tuyennv38/demoapinetcore:staging
+    container_name: gameserver-container
+    hostname: gameserver
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      
+    networks:
+      - pefi-net
+    ports:
+      - 3000:80
+    logging:
+      driver: local
+      options:
+        max-size: "10m"
+        max-file: "3"
+  
+networks:
+  pefi-net:
+    external: true
