@@ -38,7 +38,7 @@ jobs:
         id: docker_build
         with:
           context: DemoApi
-          file: ./DemoApi/Dockerfile
+          file: ./DemoApi/DemoApi/Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
