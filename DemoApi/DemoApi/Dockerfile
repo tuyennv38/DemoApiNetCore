@@ -6,8 +6,8 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["DemoApi.csproj", "DemoApi/"]
-RUN dotnet restore "DemoApi.csproj"
+COPY ["DemoApi/DemoApi/DemoApi.csproj", "DemoApi/"]
+RUN dotnet restore "DemoApi/DemoApi.csproj"
 COPY . .
 WORKDIR "/src/DemoApi"
 RUN dotnet build "DemoApi.csproj" -c Release -o /app/build
